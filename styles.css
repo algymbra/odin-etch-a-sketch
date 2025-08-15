@@ -35,9 +35,20 @@ form {
   display: none;
 }
 
+.box {
+  flex-shrink: 1;
+}
+
+.grid-lines {
+  border-left: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
 .container {
-  width: 480px;
-  height: 480px;
+  width: 482px;
+  height: 482px;
   margin: 24px auto;
   border: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -3,8 +3,11 @@ const gridContainer = document.querySelector(".container");
 const dropdownMenu = document.querySelector(".grid-size");
 const customInputEl = document.querySelector("input[type='number']");
 
+const CONTAINER_SIZE = 480;
 
 let gridSize = 32;
+
+let brushColor = 'ccc';
 
 dropdownMenu.addEventListener("change", (e) => {
   customInputEl.classList.add("hidden");
@@ -15,12 +18,32 @@ dropdownMenu.addEventListener("change", (e) => {
   } else {
     gridSize = parseInt(e.target.value);
   }
-  
 });
 
 createBtn.addEventListener("click", (e) => {
   e.preventDefault();
-
-  gridSize =  gridSize || parseInt(customInputEl.value);
-
+  gridSize = gridSize || parseInt(customInputEl.value);
+  gridContainer.innerHTML = ``;
+  createGrid(gridSize);
 });
+
+function createGrid(size) {
+  const divSize = CONTAINER_SIZE / size;
+  for (let i = 1; i <= size; i++) {
+    for (let i = 1; i <= size; i++) {
+      const div = document.createElement("div");
+      div.style.width = `${divSize}px`;
+      div.style.height = `${divSize}px`;
+      div.classList.add("box", "grid-lines");
+      gridContainer.append(div);
+    }
+  }
+}
+
+
+gridContainer.addEventListener("mouseover", (e) => {
+  if(e.target.classList.contains("box")){
+    e.target.style.backgroundColor = `#${brushColor}`;
+  };
+})
+
