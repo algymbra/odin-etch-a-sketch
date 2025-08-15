@@ -7,7 +7,9 @@ const CONTAINER_SIZE = 480;
 
 let gridSize = 32;
 
-let brushColor = 'ccc';
+
+const brushColorPickerEl = document.querySelector("input[type='color']");
+let brushColor = '#ccc';
 
 dropdownMenu.addEventListener("change", (e) => {
   customInputEl.classList.add("hidden");
@@ -43,7 +45,13 @@ function createGrid(size) {
 
 gridContainer.addEventListener("mouseover", (e) => {
   if(e.target.classList.contains("box")){
-    e.target.style.backgroundColor = `#${brushColor}`;
+    e.target.style.backgroundColor = `${brushColor}`;
   };
 })
 
+
+
+
+brushColorPickerEl.addEventListener("input", (e) => {
+  brushColor = e.target.value;
+})
