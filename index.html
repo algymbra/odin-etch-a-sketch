@@ -13,13 +13,14 @@
     </header>
     <form>
       <p>Select grid size:</p>
-      <select>
+      <select class="grid-size">
         <option value="16">16x16</option>
-        <option value="32">32x32</option>
+        <option selected value="32">32x32</option>
         <option value="64">64x64</option>
         <option value="custom">Custom</option>
       </select>
-      <button>Create</button>
+      <input type="number" min="1" max="100" class="hidden" value="100">
+      <button class="btn btn--create">Create</button>
     </form>
     <div class="container"></div>
   </body>
