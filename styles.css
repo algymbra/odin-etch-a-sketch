@@ -53,10 +53,32 @@ form {
   flex-wrap: wrap;
 }
 
-
 .controls {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
+
+.btn {
+  padding: 5px 10px;
+  background-color: #fff;
+  border: none;
+  border-radius: 0.3em;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.btn--clear {
+  background-color: #ca0b00;
+  padding: 10px;
+}
+
+.btn--create {
+  background-color: #4bb543;
 }
