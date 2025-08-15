@@ -76,9 +76,13 @@ form {
 
 .btn--clear {
   background-color: #ca0b00;
-  padding: 10px;
 }
 
 .btn--create {
   background-color: #4bb543;
+}
+
+
+.btn--toggle {
+  background-color: #1e90ff;
 }

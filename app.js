@@ -3,6 +3,8 @@ const gridContainer = document.querySelector(".container");
 const dropdownMenu = document.querySelector(".grid-size");
 const customInputEl = document.querySelector("input[type='number']");
 const clearBtn = document.querySelector(".btn--clear");
+const toggleGridBtn = document.querySelector(".btn--toggle");
+
 
 const CONTAINER_SIZE = 480;
 
@@ -55,3 +57,12 @@ brushColorPickerEl.addEventListener("input", (e) => {
 clearBtn.addEventListener("click", () => {
   createGrid(gridSize);
 });
+
+
+toggleGridBtn.addEventListener("click", (e) => {
+  const divs = Array.from(document.querySelectorAll(".box"));
+  divs.forEach((div) => {
+    div.classList.toggle("grid-lines");
+  })
+
+})
