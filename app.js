@@ -2,14 +2,14 @@ const createBtn = document.querySelector(".btn--create");
 const gridContainer = document.querySelector(".container");
 const dropdownMenu = document.querySelector(".grid-size");
 const customInputEl = document.querySelector("input[type='number']");
+const clearBtn = document.querySelector(".btn--clear");
 
 const CONTAINER_SIZE = 480;
 
 let gridSize = 32;
 
-
 const brushColorPickerEl = document.querySelector("input[type='color']");
-let brushColor = '#ccc';
+let brushColor = "#ccc";
 
 dropdownMenu.addEventListener("change", (e) => {
   customInputEl.classList.add("hidden");
@@ -25,11 +25,11 @@ dropdownMenu.addEventListener("change", (e) => {
 createBtn.addEventListener("click", (e) => {
   e.preventDefault();
   gridSize = gridSize || parseInt(customInputEl.value);
-  gridContainer.innerHTML = ``;
   createGrid(gridSize);
 });
 
 function createGrid(size) {
+  gridContainer.innerHTML = ``;
   const divSize = CONTAINER_SIZE / size;
   for (let i = 1; i <= size; i++) {
     for (let i = 1; i <= size; i++) {
@@ -42,16 +42,16 @@ function createGrid(size) {
   }
 }
 
-
 gridContainer.addEventListener("mouseover", (e) => {
-  if(e.target.classList.contains("box")){
+  if (e.target.classList.contains("box")) {
     e.target.style.backgroundColor = `${brushColor}`;
-  };
-})
-
-
-
+  }
+});
 
 brushColorPickerEl.addEventListener("input", (e) => {
   brushColor = e.target.value;
-})
+});
+
+clearBtn.addEventListener("click", () => {
+  createGrid(gridSize);
+});
